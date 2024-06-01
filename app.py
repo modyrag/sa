@@ -18,12 +18,11 @@ def analyze_sentiment(text):
     else:
         return "Neutral"
 
-
 with gr.Blocks() as demo:
     name = gr.Textbox(label="Your Text")
-    output = gr.Textbox(label="sentiment label")
-    greet_btn = gr.Button("check")
+    output = gr.Textbox(label="Sentiment Label")
+    greet_btn = gr.Button("Check")
     greet_btn.click(fn=analyze_sentiment, inputs=name, outputs=output, api_name="analyze_sentiment")
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(server_port=8080)
